@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+int main () {
+  int numerator, denominator;
+  int factor = 0;
+
+  std::cout << "What is the numerator?" << std::endl;
+  std::cin >> numerator;
+  std::cout << "What is the denominator?" << std::endl;
+  std::cin >> denominator;
+
+  //Find out what to divide numerator and denominator by
+  for (int i = 1; i <= numerator && i <= denominator; i++) {
+    if (numerator % i == 0 && denominator % i == 0) {
+      factor = i;
+    }
+  }
+  std::cout << "The greatest common factor is " << factor << std::endl; // Print out the GCF so that the user knows what the fraction will be divided by
+  numerator = numerator / factor;
+  denominator = denominator / factor;
+
+  if (denominator == 1) {
+    std::cout << "The fraction simplified is actually over 1, so it's a whole number." << std::endl; // The fraction is equivalent to a whole number
+    std::cout << "The answer is " << "/" << denominator << std::endl; // Printing out the new fraction
+  } else {
+    std::cout << "The answer is " << numerator << "/" << denominator << std::endl; // Printing ou the new fraction
+  }
+
+  char dummy;
+  std::cout << "Enter any key to quit." << std::endl;
+  std::cin >> dummy;
+
+  return 0;
+}
